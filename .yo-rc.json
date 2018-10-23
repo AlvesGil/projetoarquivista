@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "Arquivista",
+    "packageName": "br.ufpa.arquivista",
+    "packageFolder": "br/ufpa/arquivista",
+    "serverPort": 80,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.5.0",
+    "jwtSecretKey": "Y2Q1YmJmNTYwY2ZlMTZlZTVmYWVjN2MyMzk4ZTJhNzBjNTIzMTc4ODJiYjVlYjA3MGMzNTVmNTcxYmViYmQ5YzRmZTgxNmQxMmM3YTA1NGI0NWNlZmM0MjQwNjUxMGNjZWJkZTJiMDg2ZTRjZjIwYjQzYWViODVjODVmZjdkNWU="
+  },
+  "git-provider": "GitHub",
+  "git-company": "AlvesGil",
+  "repository-name": "projetoarquivista"
+}
