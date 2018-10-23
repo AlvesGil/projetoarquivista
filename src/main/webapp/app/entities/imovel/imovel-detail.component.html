@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="imovel">
+            <h2><span>Imovel</span> {{imovel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{imovel.nome}}</span>
+                </dd>
+                <dt><span>End</span></dt>
+                <dd>
+                    <span>{{imovel.end}}</span>
+                </dd>
+                <dt><span>Contrato</span></dt>
+                <dd>
+                    <span>{{imovel.contrato}}</span>
+                </dd>
+                <dt><span>Ficha</span></dt>
+                <dd>
+                    <span>{{imovel.ficha}}</span>
+                </dd>
+                <dt><span>Oficios</span></dt>
+                <dd>
+                    <span>{{imovel.oficios}}</span>
+                </dd>
+                <dt><span>Aditivo</span></dt>
+                <dd>
+                    <span>{{imovel.aditivo}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/imovel', imovel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

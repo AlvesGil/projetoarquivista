@@ -1,0 +1,94 @@
+<div>
+    <h2 id="page-heading">
+        <span>Arquivistas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-arquivista" [routerLink]="['/arquivista/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Arquivista
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="arquivistas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Cadlocador</span></th>
+            <th><span>Cadlocatario</span></th>
+            <th><span>Cadimovel</span></th>
+            <th><span>Locador</span></th>
+            <th><span>Locatario</span></th>
+            <th><span>Imovel</span></th>
+            <th><span>Pagamento</span></th>
+            <th><span>Comprovante</span></th>
+            <th><span>Vistoria</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let arquivista of arquivistas ;trackBy: trackId">
+                <td><a [routerLink]="['/arquivista', arquivista.id, 'view' ]">{{arquivista.id}}</a></td>
+                <td>{{arquivista.cadlocador}}</td>
+                <td>{{arquivista.cadlocatario}}</td>
+                <td>{{arquivista.cadimovel}}</td>
+                <td>
+                    <span *ngFor="let locador of arquivista.locadors; let last = last">
+                            <a class="form-control-static" [routerLink]="['../locador', locador?.id, 'view' ]">{{locador.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let locatario of arquivista.locatarios; let last = last">
+                            <a class="form-control-static" [routerLink]="['../locatario', locatario?.id, 'view' ]">{{locatario.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let imovel of arquivista.imovels; let last = last">
+                            <a class="form-control-static" [routerLink]="['../imovel', imovel?.id, 'view' ]">{{imovel.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let pagamento of arquivista.pagamentos; let last = last">
+                            <a class="form-control-static" [routerLink]="['../pagamento', pagamento?.id, 'view' ]">{{pagamento.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let comprovante of arquivista.comprovantes; let last = last">
+                            <a class="form-control-static" [routerLink]="['../comprovante', comprovante?.id, 'view' ]">{{comprovante.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td>
+                    <span *ngFor="let vistoria of arquivista.vistorias; let last = last">
+                            <a class="form-control-static" [routerLink]="['../vistoria', vistoria?.id, 'view' ]">{{vistoria.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/arquivista', arquivista.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/arquivista', arquivista.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'arquivista/'+ arquivista.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="arquivista">
+            <h2><span>Arquivista</span> {{arquivista.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Cadlocador</span></dt>
+                <dd>
+                    <span>{{arquivista.cadlocador}}</span>
+                </dd>
+                <dt><span>Cadlocatario</span></dt>
+                <dd>
+                    <span>{{arquivista.cadlocatario}}</span>
+                </dd>
+                <dt><span>Cadimovel</span></dt>
+                <dd>
+                    <span>{{arquivista.cadimovel}}</span>
+                </dd>
+                <dt><span>Locador</span></dt>
+                <dd>
+                    <span *ngFor="let locador of arquivista.locadors; let last = last">
+                        <a [routerLink]="['/locador', locador?.id, 'view' ]">{{locador.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Locatario</span></dt>
+                <dd>
+                    <span *ngFor="let locatario of arquivista.locatarios; let last = last">
+                        <a [routerLink]="['/locatario', locatario?.id, 'view' ]">{{locatario.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Imovel</span></dt>
+                <dd>
+                    <span *ngFor="let imovel of arquivista.imovels; let last = last">
+                        <a [routerLink]="['/imovel', imovel?.id, 'view' ]">{{imovel.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Pagamento</span></dt>
+                <dd>
+                    <span *ngFor="let pagamento of arquivista.pagamentos; let last = last">
+                        <a [routerLink]="['/pagamento', pagamento?.id, 'view' ]">{{pagamento.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Comprovante</span></dt>
+                <dd>
+                    <span *ngFor="let comprovante of arquivista.comprovantes; let last = last">
+                        <a [routerLink]="['/comprovante', comprovante?.id, 'view' ]">{{comprovante.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span>Vistoria</span></dt>
+                <dd>
+                    <span *ngFor="let vistoria of arquivista.vistorias; let last = last">
+                        <a [routerLink]="['/vistoria', vistoria?.id, 'view' ]">{{vistoria.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/arquivista', arquivista.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

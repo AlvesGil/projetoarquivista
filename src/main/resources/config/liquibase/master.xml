@@ -5,6 +5,17 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235428_added_entity_Login.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235429_added_entity_Arquivista.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235430_added_entity_Locador.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235431_added_entity_Locatario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235432_added_entity_Imovel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235433_added_entity_Pagamento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235434_added_entity_Comprovante.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235435_added_entity_Vistoria.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20181023235428_added_entity_constraints_Login.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235429_added_entity_constraints_Arquivista.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181023235433_added_entity_constraints_Pagamento.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

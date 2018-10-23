@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Arquivista.
+    -->
+    <changeSet id="20181023235429-1" author="jhipster">
+        <createTable tableName="arquivista">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="cadlocador" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cadlocatario" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cadimovel" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+        <createTable tableName="arquivista_locador">
+            <column name="locadors_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="arquivistas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="arquivistas_id, locadors_id" tableName="arquivista_locador"/>
+        
+        <createTable tableName="arquivista_locatario">
+            <column name="locatarios_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="arquivistas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="arquivistas_id, locatarios_id" tableName="arquivista_locatario"/>
+        
+        <createTable tableName="arquivista_imovel">
+            <column name="imovels_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="arquivistas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="arquivistas_id, imovels_id" tableName="arquivista_imovel"/>
+        
+        <createTable tableName="arquivista_pagamento">
+            <column name="pagamentos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="arquivistas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="arquivistas_id, pagamentos_id" tableName="arquivista_pagamento"/>
+        
+        <createTable tableName="arquivista_comprovante">
+            <column name="comprovantes_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="arquivistas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="arquivistas_id, comprovantes_id" tableName="arquivista_comprovante"/>
+        
+        <createTable tableName="arquivista_vistoria">
+            <column name="vistorias_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="arquivistas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="arquivistas_id, vistorias_id" tableName="arquivista_vistoria"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

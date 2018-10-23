@@ -1,0 +1,40 @@
+{
+    "name": "Login",
+    "fields": [
+        {
+            "fieldName": "usuario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "senha",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "arquivista",
+            "otherEntityName": "arquivista",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "login"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "locador",
+            "otherEntityName": "locador",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "login"
+        }
+    ],
+    "changelogDate": "20181023235428",
+    "entityTableName": "login",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

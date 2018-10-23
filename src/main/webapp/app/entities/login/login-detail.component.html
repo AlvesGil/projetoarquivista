@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="login">
+            <h2><span>Login</span> {{login.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Usuario</span></dt>
+                <dd>
+                    <span>{{login.usuario}}</span>
+                </dd>
+                <dt><span>Senha</span></dt>
+                <dd>
+                    <span>{{login.senha}}</span>
+                </dd>
+                <dt><span>Arquivista</span></dt>
+                <dd>
+                    <div *ngIf="login.arquivista">
+                        <a [routerLink]="['/arquivista', login.arquivista?.id, 'view']">{{login.arquivista?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Locador</span></dt>
+                <dd>
+                    <div *ngIf="login.locador">
+                        <a [routerLink]="['/locador', login.locador?.id, 'view']">{{login.locador?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/login', login.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
