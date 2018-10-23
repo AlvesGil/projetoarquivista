@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-login-heading">Create or edit a Login</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!login.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="login.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_usuario">Usuario</label>
+                    <input type="text" class="form-control" name="usuario" id="field_usuario"
+                        [(ngModel)]="login.usuario" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_senha">Senha</label>
+                    <input type="number" class="form-control" name="senha" id="field_senha"
+                        [(ngModel)]="login.senha" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_arquivista">Arquivista</label>
+                    <select class="form-control" id="field_arquivista" name="arquivista" [(ngModel)]="login.arquivista">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="arquivistaOption.id === login.arquivista?.id ? login.arquivista : arquivistaOption" *ngFor="let arquivistaOption of arquivistas; trackBy: trackArquivistaById">{{arquivistaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_locador">Locador</label>
+                    <select class="form-control" id="field_locador" name="locador" [(ngModel)]="login.locador">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="locadorOption.id === login.locador?.id ? login.locador : locadorOption" *ngFor="let locadorOption of locadors; trackBy: trackLocadorById">{{locadorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

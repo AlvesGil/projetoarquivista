@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pagamento">
+            <h2><span>Pagamento</span> {{pagamento.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Condominio</span></dt>
+                <dd>
+                    <span>{{pagamento.condominio}}</span>
+                </dd>
+                <dt><span>Iptu</span></dt>
+                <dd>
+                    <span>{{pagamento.iptu}}</span>
+                </dd>
+                <dt><span>Luz</span></dt>
+                <dd>
+                    <span>{{pagamento.luz}}</span>
+                </dd>
+                <dt><span>Agua</span></dt>
+                <dd>
+                    <span>{{pagamento.agua}}</span>
+                </dd>
+                <dt><span>Diversos</span></dt>
+                <dd>
+                    <span>{{pagamento.diversos}}</span>
+                </dd>
+                <dt><span>Locador</span></dt>
+                <dd>
+                    <div *ngIf="pagamento.locador">
+                        <a [routerLink]="['/locador', pagamento.locador?.id, 'view']">{{pagamento.locador?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pagamento', pagamento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

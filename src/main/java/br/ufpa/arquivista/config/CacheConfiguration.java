@@ -38,6 +38,27 @@ public class CacheConfiguration {
             cm.createCache(br.ufpa.arquivista.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(br.ufpa.arquivista.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(br.ufpa.arquivista.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Login.class.getName(), jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Arquivista.class.getName(), jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Arquivista.class.getName() + ".locadors", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Arquivista.class.getName() + ".locatarios", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Arquivista.class.getName() + ".imovels", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Arquivista.class.getName() + ".pagamentos", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Arquivista.class.getName() + ".comprovantes", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Arquivista.class.getName() + ".vistorias", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Locador.class.getName(), jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Locador.class.getName() + ".pagamentos", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Locador.class.getName() + ".arquivistas", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Locatario.class.getName(), jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Locatario.class.getName() + ".arquivistas", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Imovel.class.getName(), jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Imovel.class.getName() + ".arquivistas", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Pagamento.class.getName(), jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Pagamento.class.getName() + ".arquivistas", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Comprovante.class.getName(), jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Comprovante.class.getName() + ".arquivistas", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Vistoria.class.getName(), jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Vistoria.class.getName() + ".arquivistas", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

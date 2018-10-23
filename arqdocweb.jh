@@ -1,0 +1,103 @@
+
+entity Login {
+	usuario String,
+    senha Integer
+}
+entity Arquivista {
+    cadlocador String,
+    cadlocatario String,
+    cadimovel String
+}    
+ entity Locador  {
+     imovel String,
+     nome String,
+     end String,
+     idt String,
+     cpf String
+ 
+ }
+ entity Locatario {
+     imovel String,
+     nome String,
+     end String,
+     idt String,
+     cpf String
+ }
+  
+entity Imovel {
+    nome String,
+    end String,
+    contrato String,
+    ficha  String,
+    oficios String,
+    aditivo String
+}
+
+entity Pagamento {
+    condominio String,
+    iptu String,
+    luz String,
+    agua String,
+    diversos String
+}
+
+entity Comprovante{
+    mes String,
+    ano Integer
+}
+
+entity Vistoria{
+    documentos String,
+     imagens String
+}
+
+// 1 vistoria é de 1 imovel e 1 imovel pode
+// ter N vistorias
+
+// 1 locatario tem n imoveis e 1 imovel
+// ten 1 locatario
+
+
+// 1 locador tem n imoveis, e 1 imovel tem 1 locador
+
+//
+
+relationship OneToOne{
+	Login{arquivista} to Arquivista{login}
+}
+
+relationship OneToOne{
+    Login{locador} to Locador{login}
+
+}
+
+relationship OneToMany{
+    Locador{pagamentos} to Pagamento{locador}
+}
+
+
+relationship ManyToMany{
+	Arquivista{locador} to Locador{arquivista}
+}
+
+relationship ManyToMany{
+	Arquivista{locatario} to Locatario{arquivista}
+}
+ relationship ManyToMany{
+    Arquivista{imovel} to Imovel{arquivista}
+ }
+relationship ManyToMany{
+    Arquivista{pagamento} to Pagamento{arquivista}
+} 
+
+relationship ManyToMany{
+    Arquivista{comprovante} to Comprovante{arquivista}
+}
+
+relationship ManyToMany{
+    Arquivista{vistoria} to Vistoria{arquivista}
+}
+
+
+
+

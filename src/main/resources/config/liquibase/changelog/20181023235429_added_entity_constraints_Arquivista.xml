@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Arquivista.
+    -->
+    <changeSet id="20181023235429-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="arquivistas_id"
+                                 baseTableName="arquivista_locador"
+                                 constraintName="fk_arquivista_locador_arquivistas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="arquivista"/>
+        <addForeignKeyConstraint baseColumnNames="locadors_id"
+                                 baseTableName="arquivista_locador"
+                                 constraintName="fk_arquivista_locador_locadors_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="locador"/>
+        
+        <addForeignKeyConstraint baseColumnNames="arquivistas_id"
+                                 baseTableName="arquivista_locatario"
+                                 constraintName="fk_arquivista_locatario_arquivistas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="arquivista"/>
+        <addForeignKeyConstraint baseColumnNames="locatarios_id"
+                                 baseTableName="arquivista_locatario"
+                                 constraintName="fk_arquivista_locatario_locatarios_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="locatario"/>
+        
+        <addForeignKeyConstraint baseColumnNames="arquivistas_id"
+                                 baseTableName="arquivista_imovel"
+                                 constraintName="fk_arquivista_imovel_arquivistas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="arquivista"/>
+        <addForeignKeyConstraint baseColumnNames="imovels_id"
+                                 baseTableName="arquivista_imovel"
+                                 constraintName="fk_arquivista_imovel_imovels_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="imovel"/>
+        
+        <addForeignKeyConstraint baseColumnNames="arquivistas_id"
+                                 baseTableName="arquivista_pagamento"
+                                 constraintName="fk_arquivista_pagamento_arquivistas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="arquivista"/>
+        <addForeignKeyConstraint baseColumnNames="pagamentos_id"
+                                 baseTableName="arquivista_pagamento"
+                                 constraintName="fk_arquivista_pagamento_pagamentos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pagamento"/>
+        
+        <addForeignKeyConstraint baseColumnNames="arquivistas_id"
+                                 baseTableName="arquivista_comprovante"
+                                 constraintName="fk_arquivista_comprovante_arquivistas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="arquivista"/>
+        <addForeignKeyConstraint baseColumnNames="comprovantes_id"
+                                 baseTableName="arquivista_comprovante"
+                                 constraintName="fk_arquivista_comprovante_comprovantes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="comprovante"/>
+        
+        <addForeignKeyConstraint baseColumnNames="arquivistas_id"
+                                 baseTableName="arquivista_vistoria"
+                                 constraintName="fk_arquivista_vistoria_arquivistas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="arquivista"/>
+        <addForeignKeyConstraint baseColumnNames="vistorias_id"
+                                 baseTableName="arquivista_vistoria"
+                                 constraintName="fk_arquivista_vistoria_vistorias_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vistoria"/>
+        
+    </changeSet>
+</databaseChangeLog>

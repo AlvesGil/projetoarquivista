@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="locador">
+            <h2><span>Locador</span> {{locador.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Imovel</span></dt>
+                <dd>
+                    <span>{{locador.imovel}}</span>
+                </dd>
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{locador.nome}}</span>
+                </dd>
+                <dt><span>End</span></dt>
+                <dd>
+                    <span>{{locador.end}}</span>
+                </dd>
+                <dt><span>Idt</span></dt>
+                <dd>
+                    <span>{{locador.idt}}</span>
+                </dd>
+                <dt><span>Cpf</span></dt>
+                <dd>
+                    <span>{{locador.cpf}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/locador', locador.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

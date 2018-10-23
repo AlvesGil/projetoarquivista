@@ -1,0 +1,31 @@
+{
+    "name": "Comprovante",
+    "fields": [
+        {
+            "fieldName": "mes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ano",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "arquivista",
+            "otherEntityName": "arquivista",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "comprovante"
+        }
+    ],
+    "changelogDate": "20181023235434",
+    "entityTableName": "comprovante",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

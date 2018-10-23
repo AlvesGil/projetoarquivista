@@ -1,0 +1,56 @@
+{
+    "name": "Locador",
+    "fields": [
+        {
+            "fieldName": "imovel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "end",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idt",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cpf",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pagamentos",
+            "otherEntityName": "pagamento",
+            "otherEntityRelationshipName": "locador"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "login",
+            "otherEntityName": "login",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "locador"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "arquivista",
+            "otherEntityName": "arquivista",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "locador"
+        }
+    ],
+    "changelogDate": "20181023235430",
+    "entityTableName": "locador",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

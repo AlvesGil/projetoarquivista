@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-arquivista-heading">Create or edit a Arquivista</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!arquivista.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="arquivista.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cadlocador">Cadlocador</label>
+                    <input type="text" class="form-control" name="cadlocador" id="field_cadlocador"
+                        [(ngModel)]="arquivista.cadlocador" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cadlocatario">Cadlocatario</label>
+                    <input type="text" class="form-control" name="cadlocatario" id="field_cadlocatario"
+                        [(ngModel)]="arquivista.cadlocatario" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cadimovel">Cadimovel</label>
+                    <input type="text" class="form-control" name="cadimovel" id="field_cadimovel"
+                        [(ngModel)]="arquivista.cadimovel" />
+                </div>
+
+                <div class="form-group">
+                    <label for="field_locador">Locador</label>
+                    <select class="form-control" id="field_locador" multiple name="locador" [(ngModel)]="arquivista.locadors">
+                        <option [ngValue]="getSelected(arquivista.locadors, locadorOption)" *ngFor="let locadorOption of locadors; trackBy: trackLocadorById">{{locadorOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_locatario">Locatario</label>
+                    <select class="form-control" id="field_locatario" multiple name="locatario" [(ngModel)]="arquivista.locatarios">
+                        <option [ngValue]="getSelected(arquivista.locatarios, locatarioOption)" *ngFor="let locatarioOption of locatarios; trackBy: trackLocatarioById">{{locatarioOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_imovel">Imovel</label>
+                    <select class="form-control" id="field_imovel" multiple name="imovel" [(ngModel)]="arquivista.imovels">
+                        <option [ngValue]="getSelected(arquivista.imovels, imovelOption)" *ngFor="let imovelOption of imovels; trackBy: trackImovelById">{{imovelOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_pagamento">Pagamento</label>
+                    <select class="form-control" id="field_pagamento" multiple name="pagamento" [(ngModel)]="arquivista.pagamentos">
+                        <option [ngValue]="getSelected(arquivista.pagamentos, pagamentoOption)" *ngFor="let pagamentoOption of pagamentos; trackBy: trackPagamentoById">{{pagamentoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_comprovante">Comprovante</label>
+                    <select class="form-control" id="field_comprovante" multiple name="comprovante" [(ngModel)]="arquivista.comprovantes">
+                        <option [ngValue]="getSelected(arquivista.comprovantes, comprovanteOption)" *ngFor="let comprovanteOption of comprovantes; trackBy: trackComprovanteById">{{comprovanteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_vistoria">Vistoria</label>
+                    <select class="form-control" id="field_vistoria" multiple name="vistoria" [(ngModel)]="arquivista.vistorias">
+                        <option [ngValue]="getSelected(arquivista.vistorias, vistoriaOption)" *ngFor="let vistoriaOption of vistorias; trackBy: trackVistoriaById">{{vistoriaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
