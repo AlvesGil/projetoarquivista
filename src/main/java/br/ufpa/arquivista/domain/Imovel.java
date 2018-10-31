@@ -1,6 +1,7 @@
 package br.ufpa.arquivista.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -43,6 +44,16 @@ public class Imovel implements Serializable {
     @Column(name = "aditivo")
     private String aditivo;
 
+    @ManyToOne
+    @JsonIgnoreProperties("imovels")
+    private Vistoria vistoria;
+
+    @OneToMany(mappedBy = "imovel")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Locatario> locatarios = new HashSet<>();
+    @OneToMany(mappedBy = "imovel")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Locador> locadors = new HashSet<>();
     @ManyToMany(mappedBy = "imovels")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnore
@@ -133,6 +144,69 @@ public class Imovel implements Serializable {
 
     public void setAditivo(String aditivo) {
         this.aditivo = aditivo;
+    }
+
+    public Vistoria getVistoria() {
+        return vistoria;
+    }
+
+    public Imovel vistoria(Vistoria vistoria) {
+        this.vistoria = vistoria;
+        return this;
+    }
+
+    public void setVistoria(Vistoria vistoria) {
+        this.vistoria = vistoria;
+    }
+
+    public Set<Locatario> getLocatarios() {
+        return locatarios;
+    }
+
+    public Imovel locatarios(Set<Locatario> locatarios) {
+        this.locatarios = locatarios;
+        return this;
+    }
+
+    public Imovel addLocatario(Locatario locatario) {
+        this.locatarios.add(locatario);
+        locatario.setImovel(this);
+        return this;
+    }
+
+    public Imovel removeLocatario(Locatario locatario) {
+        this.locatarios.remove(locatario);
+        locatario.setImovel(null);
+        return this;
+    }
+
+    public void setLocatarios(Set<Locatario> locatarios) {
+        this.locatarios = locatarios;
+    }
+
+    public Set<Locador> getLocadors() {
+        return locadors;
+    }
+
+    public Imovel locadors(Set<Locador> locadors) {
+        this.locadors = locadors;
+        return this;
+    }
+
+    public Imovel addLocador(Locador locador) {
+        this.locadors.add(locador);
+        locador.setImovel(this);
+        return this;
+    }
+
+    public Imovel removeLocador(Locador locador) {
+        this.locadors.remove(locador);
+        locador.setImovel(null);
+        return this;
+    }
+
+    public void setLocadors(Set<Locador> locadors) {
+        this.locadors = locadors;
     }
 
     public Set<Arquivista> getArquivistas() {

@@ -30,6 +30,12 @@
             "otherEntityRelationshipName": "locador"
         },
         {
+            "relationshipType": "many-to-one",
+            "relationshipName": "imovel",
+            "otherEntityName": "imovel",
+            "otherEntityField": "id"
+        },
+        {
             "relationshipType": "one-to-one",
             "relationshipName": "login",
             "otherEntityName": "login",

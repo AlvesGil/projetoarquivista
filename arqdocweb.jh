@@ -72,6 +72,20 @@ relationship OneToOne{
 }
 
 relationship OneToMany{
+    Vistoria{imovel} to Imovel{vistoria}
+    
+}
+relationship ManyToOne{
+   Locatario{imovel} to Imovel{locatario}
+ 
+ }
+ 
+relationship ManyToOne{
+   Locador{imovel} to Imovel{locador}
+   
+}
+
+relationship OneToMany{
     Locador{pagamentos} to Pagamento{locador}
 }
 

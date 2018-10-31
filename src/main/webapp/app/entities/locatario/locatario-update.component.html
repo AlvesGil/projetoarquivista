@@ -35,6 +35,13 @@
                         [(ngModel)]="locatario.cpf" />
                 </div>
 
+                <div class="form-group">
+                    <label class="form-control-label" for="field_imovel">Imovel</label>
+                    <select class="form-control" id="field_imovel" name="imovel" [(ngModel)]="locatario.imovel" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="imovelOption.id === locatario.imovel?.id ? locatario.imovel : imovelOption" *ngFor="let imovelOption of imovels; trackBy: trackImovelById">{{imovelOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

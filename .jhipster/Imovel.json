@@ -28,6 +28,24 @@
     ],
     "relationships": [
         {
+            "relationshipType": "many-to-one",
+            "relationshipName": "vistoria",
+            "otherEntityName": "vistoria",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locatario",
+            "otherEntityName": "locatario",
+            "otherEntityRelationshipName": "imovel"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locador",
+            "otherEntityName": "locador",
+            "otherEntityRelationshipName": "imovel"
+        },
+        {
             "relationshipType": "many-to-many",
             "relationshipName": "arquivista",
             "otherEntityName": "arquivista",

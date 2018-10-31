@@ -25,6 +25,12 @@
                 <dd>
                     <span>{{locador.cpf}}</span>
                 </dd>
+                <dt><span>Imovel</span></dt>
+                <dd>
+                    <div *ngIf="locador.imovel">
+                        <a [routerLink]="['/imovel', locador.imovel?.id, 'view']">{{locador.imovel?.id}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

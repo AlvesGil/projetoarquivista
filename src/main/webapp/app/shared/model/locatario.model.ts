@@ -1,3 +1,4 @@
+import { IImovel } from 'app/shared/model//imovel.model';
 import { IArquivista } from 'app/shared/model//arquivista.model';
 
 export interface ILocatario {
@@ -7,6 +8,7 @@ export interface ILocatario {
     end?: string;
     idt?: string;
     cpf?: string;
+    imovel?: IImovel;
     arquivistas?: IArquivista[];
 }
 
@@ -18,6 +20,7 @@ export class Locatario implements ILocatario {
         public end?: string,
         public idt?: string,
         public cpf?: string,
+        public imovel?: IImovel,
         public arquivistas?: IArquivista[]
     ) {}
 }

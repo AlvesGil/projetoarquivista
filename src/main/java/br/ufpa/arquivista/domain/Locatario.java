@@ -1,6 +1,7 @@
 package br.ufpa.arquivista.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -39,6 +40,10 @@ public class Locatario implements Serializable {
 
     @Column(name = "cpf")
     private String cpf;
+
+    @ManyToOne
+    @JsonIgnoreProperties("locatarios")
+    private Imovel imovel;
 
     @ManyToMany(mappedBy = "locatarios")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -117,6 +122,19 @@ public class Locatario implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public Imovel getImovel() {
+        return imovel;
+    }
+
+    public Locatario imovel(Imovel imovel) {
+        this.imovel = imovel;
+        return this;
+    }
+
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
     }
 
     public Set<Arquivista> getArquivistas() {

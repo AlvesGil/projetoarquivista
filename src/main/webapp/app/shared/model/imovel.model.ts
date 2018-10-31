@@ -1,3 +1,6 @@
+import { IVistoria } from 'app/shared/model//vistoria.model';
+import { ILocatario } from 'app/shared/model//locatario.model';
+import { ILocador } from 'app/shared/model//locador.model';
 import { IArquivista } from 'app/shared/model//arquivista.model';
 
 export interface IImovel {
@@ -8,6 +11,9 @@ export interface IImovel {
     ficha?: string;
     oficios?: string;
     aditivo?: string;
+    vistoria?: IVistoria;
+    locatarios?: ILocatario[];
+    locadors?: ILocador[];
     arquivistas?: IArquivista[];
 }
 
@@ -20,6 +26,9 @@ export class Imovel implements IImovel {
         public ficha?: string,
         public oficios?: string,
         public aditivo?: string,
+        public vistoria?: IVistoria,
+        public locatarios?: ILocatario[],
+        public locadors?: ILocador[],
         public arquivistas?: IArquivista[]
     ) {}
 }

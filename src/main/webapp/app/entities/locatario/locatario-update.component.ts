@@ -6,6 +6,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { ILocatario } from 'app/shared/model/locatario.model';
 import { LocatarioService } from './locatario.service';
+import { IImovel } from 'app/shared/model/imovel.model';
+import { ImovelService } from 'app/entities/imovel';
 import { IArquivista } from 'app/shared/model/arquivista.model';
 import { ArquivistaService } from 'app/entities/arquivista';
 
@@ -17,11 +19,14 @@ export class LocatarioUpdateComponent implements OnInit {
     locatario: ILocatario;
     isSaving: boolean;
 
+    imovels: IImovel[];
+
     arquivistas: IArquivista[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private locatarioService: LocatarioService,
+        private imovelService: ImovelService,
         private arquivistaService: ArquivistaService,
         private activatedRoute: ActivatedRoute
     ) {}
@@ -31,6 +36,12 @@ export class LocatarioUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ locatario }) => {
             this.locatario = locatario;
         });
+        this.imovelService.query().subscribe(
+            (res: HttpResponse<IImovel[]>) => {
+                this.imovels = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
         this.arquivistaService.query().subscribe(
             (res: HttpResponse<IArquivista[]>) => {
                 this.arquivistas = res.body;
@@ -67,6 +78,10 @@ export class LocatarioUpdateComponent implements OnInit {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackImovelById(index: number, item: IImovel) {
+        return item.id;
     }
 
     trackArquivistaById(index: number, item: IArquivista) {

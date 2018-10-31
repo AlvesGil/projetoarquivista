@@ -20,6 +20,7 @@
             <th><span>End</span></th>
             <th><span>Idt</span></th>
             <th><span>Cpf</span></th>
+            <th><span>Imovel</span></th>
             <th></th>
             </tr>
             </thead>
@@ -31,6 +32,11 @@
                 <td>{{locatario.end}}</td>
                 <td>{{locatario.idt}}</td>
                 <td>{{locatario.cpf}}</td>
+                <td>
+                    <div *ngIf="locatario.imovel">
+                        <a [routerLink]="['../imovel', locatario.imovel?.id, 'view' ]" >{{locatario.imovel?.id}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -59,6 +59,9 @@ public class CacheConfiguration {
             cm.createCache(br.ufpa.arquivista.domain.Comprovante.class.getName() + ".arquivistas", jcacheConfiguration);
             cm.createCache(br.ufpa.arquivista.domain.Vistoria.class.getName(), jcacheConfiguration);
             cm.createCache(br.ufpa.arquivista.domain.Vistoria.class.getName() + ".arquivistas", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Imovel.class.getName() + ".locatarios", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Imovel.class.getName() + ".locadors", jcacheConfiguration);
+            cm.createCache(br.ufpa.arquivista.domain.Vistoria.class.getName() + ".imovels", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

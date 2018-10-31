@@ -1,4 +1,5 @@
 import { IPagamento } from 'app/shared/model//pagamento.model';
+import { IImovel } from 'app/shared/model//imovel.model';
 import { ILogin } from 'app/shared/model//login.model';
 import { IArquivista } from 'app/shared/model//arquivista.model';
 
@@ -10,6 +11,7 @@ export interface ILocador {
     idt?: string;
     cpf?: string;
     pagamentos?: IPagamento[];
+    imovel?: IImovel;
     login?: ILogin;
     arquivistas?: IArquivista[];
 }
@@ -23,6 +25,7 @@ export class Locador implements ILocador {
         public idt?: string,
         public cpf?: string,
         public pagamentos?: IPagamento[],
+        public imovel?: IImovel,
         public login?: ILogin,
         public arquivistas?: IArquivista[]
     ) {}
