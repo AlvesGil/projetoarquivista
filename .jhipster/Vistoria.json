@@ -12,6 +12,12 @@
     ],
     "relationships": [
         {
+            "relationshipType": "one-to-many",
+            "relationshipName": "imovel",
+            "otherEntityName": "imovel",
+            "otherEntityRelationshipName": "vistoria"
+        },
+        {
             "relationshipType": "many-to-many",
             "relationshipName": "arquivista",
             "otherEntityName": "arquivista",

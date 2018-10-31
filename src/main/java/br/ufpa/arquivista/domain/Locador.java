@@ -1,6 +1,7 @@
 package br.ufpa.arquivista.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -43,6 +44,10 @@ public class Locador implements Serializable {
     @OneToMany(mappedBy = "locador")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Pagamento> pagamentos = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("locadors")
+    private Imovel imovel;
+
     @OneToOne(mappedBy = "locador")
     @JsonIgnore
     private Login login;
@@ -149,6 +154,19 @@ public class Locador implements Serializable {
 
     public void setPagamentos(Set<Pagamento> pagamentos) {
         this.pagamentos = pagamentos;
+    }
+
+    public Imovel getImovel() {
+        return imovel;
+    }
+
+    public Locador imovel(Imovel imovel) {
+        this.imovel = imovel;
+        return this;
+    }
+
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
     }
 
     public Login getLogin() {

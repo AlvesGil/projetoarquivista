@@ -31,6 +31,9 @@ public class Vistoria implements Serializable {
     @Column(name = "imagens")
     private String imagens;
 
+    @OneToMany(mappedBy = "vistoria")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Imovel> imovels = new HashSet<>();
     @ManyToMany(mappedBy = "vistorias")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnore
@@ -69,6 +72,31 @@ public class Vistoria implements Serializable {
 
     public void setImagens(String imagens) {
         this.imagens = imagens;
+    }
+
+    public Set<Imovel> getImovels() {
+        return imovels;
+    }
+
+    public Vistoria imovels(Set<Imovel> imovels) {
+        this.imovels = imovels;
+        return this;
+    }
+
+    public Vistoria addImovel(Imovel imovel) {
+        this.imovels.add(imovel);
+        imovel.setVistoria(this);
+        return this;
+    }
+
+    public Vistoria removeImovel(Imovel imovel) {
+        this.imovels.remove(imovel);
+        imovel.setVistoria(null);
+        return this;
+    }
+
+    public void setImovels(Set<Imovel> imovels) {
+        this.imovels = imovels;
     }
 
     public Set<Arquivista> getArquivistas() {

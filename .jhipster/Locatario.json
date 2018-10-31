@@ -24,6 +24,12 @@
     ],
     "relationships": [
         {
+            "relationshipType": "many-to-one",
+            "relationshipName": "imovel",
+            "otherEntityName": "imovel",
+            "otherEntityField": "id"
+        },
+        {
             "relationshipType": "many-to-many",
             "relationshipName": "arquivista",
             "otherEntityName": "arquivista",

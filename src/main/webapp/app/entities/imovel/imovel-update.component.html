@@ -40,6 +40,13 @@
                         [(ngModel)]="imovel.aditivo" />
                 </div>
 
+                <div class="form-group">
+                    <label class="form-control-label" for="field_vistoria">Vistoria</label>
+                    <select class="form-control" id="field_vistoria" name="vistoria" [(ngModel)]="imovel.vistoria" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="vistoriaOption.id === imovel.vistoria?.id ? imovel.vistoria : vistoriaOption" *ngFor="let vistoriaOption of vistorias; trackBy: trackVistoriaById">{{vistoriaOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

@@ -6,6 +6,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { ILocador } from 'app/shared/model/locador.model';
 import { LocadorService } from './locador.service';
+import { IImovel } from 'app/shared/model/imovel.model';
+import { ImovelService } from 'app/entities/imovel';
 import { ILogin } from 'app/shared/model/login.model';
 import { LoginService } from 'app/entities/login';
 import { IArquivista } from 'app/shared/model/arquivista.model';
@@ -19,6 +21,8 @@ export class LocadorUpdateComponent implements OnInit {
     locador: ILocador;
     isSaving: boolean;
 
+    imovels: IImovel[];
+
     logins: ILogin[];
 
     arquivistas: IArquivista[];
@@ -26,6 +30,7 @@ export class LocadorUpdateComponent implements OnInit {
     constructor(
         private jhiAlertService: JhiAlertService,
         private locadorService: LocadorService,
+        private imovelService: ImovelService,
         private loginService: LoginService,
         private arquivistaService: ArquivistaService,
         private activatedRoute: ActivatedRoute
@@ -36,6 +41,12 @@ export class LocadorUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ locador }) => {
             this.locador = locador;
         });
+        this.imovelService.query().subscribe(
+            (res: HttpResponse<IImovel[]>) => {
+                this.imovels = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
         this.loginService.query().subscribe(
             (res: HttpResponse<ILogin[]>) => {
                 this.logins = res.body;
@@ -78,6 +89,10 @@ export class LocadorUpdateComponent implements OnInit {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    trackImovelById(index: number, item: IImovel) {
+        return item.id;
     }
 
     trackLoginById(index: number, item: ILogin) {

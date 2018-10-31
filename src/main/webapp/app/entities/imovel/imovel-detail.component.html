@@ -29,6 +29,12 @@
                 <dd>
                     <span>{{imovel.aditivo}}</span>
                 </dd>
+                <dt><span>Vistoria</span></dt>
+                <dd>
+                    <div *ngIf="imovel.vistoria">
+                        <a [routerLink]="['/vistoria', imovel.vistoria?.id, 'view']">{{imovel.vistoria?.id}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"
